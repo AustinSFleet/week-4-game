@@ -56,14 +56,16 @@
     
     <script type = "text/javascript">
     var counter = 0;
-    var targetNum = (Math.floor(Math.random()*10) +1) *10;
+    var targetNum = (Math.floor(Math.random()*120) +19);
     var numOptions = [6,14,32,8,5,12];
     var numIndex = Math.floor(Math.random()* numOptions.length);
     var increment = numOptions[numIndex];
     $("#target").html(targetNum);
-    $(".crystal-image").on("click", function (){ 
+   
+    $("#crystal1").on("click", function (){ 
+        var increment = numOptions[numIndex];
         counter+= increment;
-        alert("Crystal Score: " + counter);
+        $("#totalScore").html(counter);
 
         if(counter == targetNum){
             alert("you win");
@@ -71,7 +73,41 @@
             alert("you lose");
         }
     });
-    
+    $("#crystal2").on("click", function (){ 
+        var increment = numOptions[numIndex];
+        counter+= increment;
+        $("#totalScore").html(counter);
+
+        if(counter == targetNum){
+            alert("you win");
+        }else if(counter> targetNum){
+            alert("you lose");
+        }
+    });
+
+    $("#crystal3").on("click", function (){ 
+        var increment = numOptions[numIndex];
+        counter+= increment;
+        $("#totalScore").html(counter);
+
+        if(counter == targetNum){
+            alert("you win");
+        }else if(counter> targetNum){
+            alert("you lose");
+        }
+    });
+
+    $("#crystal4").on("click", function (){ 
+       var increment = numOptions[numIndex];
+        counter+= increment;
+        $("#totalScore").html(counter);
+
+        if(counter == targetNum){
+            alert("you win");
+        }else if(counter> targetNum){
+            alert("you lose");
+        }
+    });
     
     
     </script>
