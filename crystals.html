@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script
+    src="http://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+    <title>Document</title>
+
+    <style type="text/css">
+
+    .crystal-image {
+        width:200px;
+        height:200px;
+    }
+
+    </style>
+</head>
+<body>
+    
+    <h1> Crystals Colector! </h1>
+    <br>
+    <p>
+        You will be given a random number at the start of the game.
+    </p>
+    <p> 
+        There are four crystals below. By clicking on a crystal you will add a specific amount of points to your total score.
+    </p>
+    <p>
+        You win the game by matching your total score to the random number, you lose the game if your total score goes above the random number.
+    </p>
+    <p> 
+        The value of each crystal is hidden from you until you click on it.
+    </p>
+    <p>
+        Each time when the game starts, the values of each crystal will change.
+    </p>
+
+    
+    <h2>Your Target number: <span id = "target"></span> </h2>
+    
+    <div> Wins: <span id = wins></span></div>
+    <div> Losses: <span id = losses></span></div>
+    
+    <div id="crystals">
+        <img class ="crystal-image" id=crystal1 src = "https://pbs.twimg.com/profile_images/531994916181012480/EBap51cO.png" alt="crystal01">
+        <img class ="crystal-image" id=crystal2 src = "https://vignette4.wikia.nocookie.net/zelda/images/6/6b/Yellow_Rupee_%28The_Wind_Waker%29.png/revision/latest?cb=20100128023501" alt="crystal02">
+        <img class ="crystal-image" id=crystal3 src = "https://www.zeldadungeon.net/wp-content/uploads/2011/11/zelda_skyward_art-21-Copy.jpg" alt="crystal03">
+        <img class ="crystal-image" id=crystal4 src = "http://i.jeuxactus.com/datas/jeu/t/h/the-legend-of-zelda-skyward-sword/xl/the-legend-of-zelda-4eb405e4cb64b.jpg" alt="crystal04">
+    </div>
+    
+    <div> Your total score is: <span id = totalScore></span></div>
+    
+    <script type = "text/javascript">
+    var counter = 0;
+    var targetNum = (Math.floor(Math.random()*10) +1) *10;
+    var numOptions = [6,14,32,8,5,12];
+    var numIndex = Math.floor(Math.random()* numOptions.length);
+    var increment = numOptions[numIndex];
+    $("#target").html(targetNum);
+    $(".crystal-image").on("click", function (){ 
+        counter+= increment;
+        alert("Crystal Score: " + counter);
+
+        if(counter == targetNum){
+            alert("you win");
+        }else if(counter> targetNum){
+            alert("you lose");
+        }
+    });
+    
+    
+    
+    </script>
+</body>
+</html>
